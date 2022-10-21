@@ -30,7 +30,7 @@ let zip2 = document.getElementById("to").value;
 
 //Parse Through Zip Code JSON Data  
 const ourRequest = new XMLHttpRequest();
-  ourRequest.open('GET','/Zip_Distance_Finder/assets/js/ZipCodeDatabase.json');
+  ourRequest.open('GET','assets/js/ZipCodeDatabase.json');
   ourRequest.onload = function (){
       let zipData = JSON.parse(ourRequest.responseText);
       zipData.forEach(element => {
@@ -51,8 +51,6 @@ const ourRequest = new XMLHttpRequest();
       
       let newDistance = `The distance between ${zip1} (${city1},${state1}) and ${zip2} (${city2},${state2}) = ${Math.round((distance + Number.EPSILON) * 100) / 100} miles`
       document.getElementById("displayDistance").innerHTML = newDistance;}
-      
-      
       
       zip1 = "";
       zip2 = "";
