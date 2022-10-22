@@ -49,9 +49,11 @@ const ourRequest = new XMLHttpRequest();
         return alert(`Please provide valid 5 digit US ZIP Code`)
     }else{
       
-      let newDistance = `The distance between ${zip1} (${city1},${state1}) and ${zip2} (${city2},${state2}) = ${Math.round((distance + Number.EPSILON) * 100) / 100} miles`
+      let newDistance = `${zip1} (${city1},${state1} [${latitude1},${longitude1}]) <br> ${zip2} (${city2},${state2} [${latitude2},${longitude2}]) <br><br> <strong>${Math.round((distance + Number.EPSILON) * 100) / 100} miles</strong>`
       document.getElementById("displayDistance").innerHTML = newDistance;}
-      
+      let markers = [[latitude1,longitude1],[latitude2,longitude2]];
+      L.marker([latitude1,longitude1]).addTo(mymap);
+      L.marker([latitude2,longitude2]).addTo(mymap);
       zip1 = "";
       zip2 = "";
       latitude1 = "";
