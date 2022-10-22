@@ -25,8 +25,12 @@ const myForm = document.getElementById("form");
 myForm.addEventListener("submit", (e) => {
 e.preventDefault();
 
+const form = document.querySelector('#form')
 let zip1 = document.getElementById("from").value;
-let zip2 = document.getElementById("to").value; 
+let zip2 = document.getElementById("to").value;
+let inputs = form.getElementsByTagName('input');
+inputs.from.value = zip2;
+inputs.to.value = '';
 
 //Parse Through Zip Code JSON Data  
 const ourRequest = new XMLHttpRequest();
@@ -55,8 +59,6 @@ let distance = getDistanceFromLatLng(latitude1,longitude1,latitude2,longitude2,"
     [latitude2, longitude2]];
     const marker1 = L.marker([latitude1,longitude1]).addTo(mymap);
     const marker2 = L.marker([latitude2,longitude2]).addTo(mymap);
-
-    console.log(markers)
 
     let latlngs = [ [latitude1,longitude1], [latitude2, longitude2] ];
 
