@@ -62,7 +62,7 @@ let distance = getDistanceFromLatLng(latitude1,longitude1,latitude2,longitude2,"
 
     let polyline = L.polyline(latlngs, {color: 'red'});
     polyline.addTo(mymap)
-    mymap.fitbounds(polyline.getBounds());
+    mymap.fitBounds(polyline.getBounds());
     
 
     zip1 = "";
