@@ -19,7 +19,7 @@ latitude1 = "";
 latitude2 = "";
 longitude1 = "";
 longitude2 = "";
-
+totalDistance = 0;
 
 const myForm = document.getElementById("form");
 myForm.addEventListener("submit", (e) => {
@@ -52,8 +52,8 @@ let distance = getDistanceFromLatLng(latitude1,longitude1,latitude2,longitude2,"
     if (zip1.length < 5 || zip2.length < 5 || isNaN(zip1) == true || isNaN(zip2) == true || latitude1 == "" || latitude2 == ""){
       return alert(`Please provide valid 5 digit US ZIP Code`)
   }else{
-
-    let newDistance = `${zip1} (${city1},${state1}) to ${zip2} (${city2},${state2}) => <strong>${Math.round((distance + Number.EPSILON) * 100) / 100} miles</strong><br>`
+    totalDistance += distance;
+    let newDistance = `${zip1} (${city1},${state1}) to ${zip2} (${city2},${state2}) => <strong>${Math.round((distance + Number.EPSILON) * 100) / 100} miles</strong><br><br><strong>Total Distance = ${Math.round((totalDistance + Number.EPSILON) * 100) / 100} miles</strong>`
     document.getElementById("displayDistance").innerHTML += newDistance;}
     let markers = [ [latitude1, longitude1],
     [latitude2, longitude2]];
