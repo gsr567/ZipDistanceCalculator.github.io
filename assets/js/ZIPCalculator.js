@@ -39,12 +39,12 @@ ourRequest.open('GET','assets/js/ZipCodeDatabase.json');
 ourRequest.onload = function (){
     let zipData = JSON.parse(ourRequest.responseText);
     zipData.forEach(element => {
-        if (element.Zip == zip1 && element.Zip != "") 
+        if (element.Zip == zip1) 
         return latitude1 = element.Latitude,longitude1 = element.Longitude, city1 = element.City, state1 = element.State;
         else return undefined
     })
     zipData.forEach(element => {
-        if (element.Zip == zip2 && element.Zip != "")
+        if (element.Zip == zip2)
         return latitude2 = element.Latitude,longitude2 = element.Longitude, city2 = element.City, state2 = element.State;
         else return undefined
     })
